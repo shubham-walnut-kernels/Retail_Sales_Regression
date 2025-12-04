@@ -6,122 +6,193 @@
     <title>Retail Sales Regression – Project</title>
 
     <style>
+        /* ------------------------------
+           GLOBAL STYLES
+        ------------------------------ */
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6fa;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f4f6fb;
             margin: 0;
             padding: 0;
             color: #2d3436;
         }
 
-        header {
-            background: #2d3436;
-            padding: 40px 20px;
+        a {
+            text-decoration: none;
+        }
+
+        /* ------------------------------
+           NAVBAR
+        ------------------------------ */
+        .navbar {
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 14px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2d3436;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            color: #0984e3;
+            font-weight: 600;
+        }
+
+        /* ------------------------------
+           HERO SECTION
+        ------------------------------ */
+        .hero {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0984e3, #6c5ce7);
             text-align: center;
             color: white;
         }
 
-        h1 {
+        .hero h1 {
             margin: 0;
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 42px;
+            font-weight: 800;
         }
 
-        .subtitle {
+        .hero p {
+            margin-top: 15px;
             font-size: 18px;
-            opacity: 0.7;
-            margin-top: 10px;
+            opacity: 0.9;
         }
 
+        /* ------------------------------
+           MAIN CONTAINER
+        ------------------------------ */
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
+        }
+
+        /* ------------------------------
+           CARD STYLES
+        ------------------------------ */
+        .card-grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         .card {
             background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        h2 {
-            margin-top: 0;
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
             color: #0984e3;
+            margin-top: 0;
         }
 
-        a.button {
+        .button {
             display: inline-block;
-            padding: 10px 18px;
+            padding: 12px 18px;
             background: #0984e3;
             color: white;
-            text-decoration: none;
             border-radius: 6px;
-            margin-top: 10px;
             font-weight: bold;
+            margin-top: 15px;
         }
 
-        a.button:hover {
+        .button:hover {
             background: #0652DD;
         }
 
+        /* ------------------------------
+           FOOTER
+        ------------------------------ */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            margin-top: 60px;
             color: #636e72;
-            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Retail Sales Regression</h1>
-        <p class="subtitle">A Machine Learning Project for Rossmann Sales Forecasting</p>
-    </header>
+    <!-- NAVIGATION BAR -->
+    <div class="navbar">
+        <div class="nav-title">Retail Sales Regression</div>
+        <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#downloads">Data</a>
+            <a href="#notebook">Notebook</a>
+            <a href="https://github.com/shubham-walnut-kernels/Retail_Sales_Regression" target="_blank">GitHub</a>
+        </div>
+    </div>
 
+    <!-- HERO BANNER -->
+    <div class="hero">
+        <h1>Rossmann Sales Forecasting</h1>
+        <p>Predicting daily sales across 1,115 stores using regression modeling, feature engineering, and machine learning.</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
     <div class="container">
 
-        <div class="card">
+        <!-- PROJECT OVERVIEW -->
+        <div class="card" id="overview">
             <h2>📌 Project Overview</h2>
             <p>
-                This project predicts daily sales for Rossmann stores using regression modeling.
-                The dataset includes store details, promotional data, competition factors, and daily sales records.
-                The goal is to build a reliable sales forecasting pipeline for business decision-making.
+                This project analyzes Rossmann store sales and builds a machine learning model to forecast daily revenue.
+                The dataset includes store metadata, promotions, competition, holidays, and trend patterns.
+                The objective is to support better business planning using predictive analytics.
             </p>
         </div>
 
-        <div class="card">
-            <h2>📂 Download Dataset Files</h2>
+        <!-- GRID OF FEATURE CARDS -->
+        <div class="card-grid">
 
-            <a class="button" href="Rossmann Stores Data.csv">⬇ Download Rossmann Stores Data</a><br><br>
-            <a class="button" href="store.csv">⬇ Download Store.csv</a>
-        </div>
+            <!-- DATA DOWNLOADS -->
+            <div class="card" id="downloads">
+                <h2>📂 Download Dataset</h2>
+                <a class="button" href="Rossmann Stores Data.csv">📥 Rossmann Stores Data</a><br><br>
+                <a class="button" href="store.csv">📥 Store.csv</a>
+            </div>
 
-        <div class="card">
-            <h2>📘 Project Notebook</h2>
+            <!-- NOTEBOOK -->
+            <div class="card" id="notebook">
+                <h2>📘 View Notebook</h2>
+                <a class="button" href="retail_sales_regression.html" target="_blank">📘 Open Notebook (HTML)</a>
+            </div>
 
-            <a class="button" href="retail_sales_regression.html" target="_blank">
-                📘 View Notebook (HTML)
-            </a>
-            <br><br>
-        </div>
-
-        <div class="card">
-            <h2>🔗 Repository Link</h2>
-
-            <a class="button" href="https://github.com/shubham-walnut-kernels/Retail_Sales_Regression">
-                🔍 View GitHub Repository
-            </a>
+            <!-- GITHUB -->
+            <div class="card">
+                <h2>🔗 GitHub Repository</h2>
+                <a class="button" href="https://github.com/shubham-walnut-kernels/Retail_Sales_Regression" target="_blank">🔍 View on GitHub</a>
+            </div>
         </div>
 
     </div>
 
+    <!-- FOOTER -->
     <footer>
-        © 2025 Shubham – Retail Sales Regression Project
+        © 2025 Shubham — Retail Sales Regression Project
     </footer>
 
 </body>
